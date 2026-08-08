@@ -23,6 +23,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 72px;
 }
 
 body {
@@ -64,6 +65,10 @@ button {
   z-index: 1;
   width: min(1130px, calc(100% - 48px));
   margin: 0 auto;
+}
+
+.section-wrap {
+  scroll-margin-top: 72px;
 }
 
 .site-header {
@@ -1052,32 +1057,42 @@ button {
 .about-page {
   position: relative;
   z-index: 1;
+  padding: 92px 0 34px;
 }
 
 .about-hero {
-  min-height: 520px;
-  padding: 120px 0 74px;
-  text-align: center;
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 52px;
+  align-items: end;
+  padding: 48px;
+  text-align: left;
+  background:
+    radial-gradient(circle at 10% 0, rgba(22, 168, 255, 0.18), transparent 32rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.018)),
+    rgba(9, 11, 14, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 10px;
 }
 
-.about-hero h1 {
+.about-hero h2 {
   margin: 0;
   color: #fff;
-  font-size: clamp(42px, 5vw, 68px);
+  font-size: clamp(34px, 4vw, 54px);
   font-weight: 700;
   line-height: 1.1;
 }
 
 .about-hero p {
-  max-width: 760px;
-  margin: 24px auto 0;
+  max-width: 650px;
+  margin: 0;
   color: rgba(220, 224, 232, 0.74);
   font-size: 17px;
   line-height: 1.9;
 }
 
 .about-section {
-  padding: 82px 0;
+  padding: 72px 0 0;
 }
 
 .about-value-grid,
@@ -1203,6 +1218,48 @@ button {
   line-height: 1.35;
 }
 
+.developer-docs {
+  padding: 94px 0 84px;
+}
+
+.docs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.docs-grid article {
+  min-height: 220px;
+  padding: 28px;
+  background:
+    radial-gradient(circle at 80% 0, rgba(56, 216, 255, 0.13), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.018)),
+    rgba(9, 11, 14, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 10px;
+}
+
+.docs-grid span {
+  color: rgba(56, 216, 255, 0.78);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.docs-grid h3 {
+  margin: 54px 0 14px;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 650;
+}
+
+.docs-grid p {
+  margin: 0;
+  color: var(--soft);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
 .footer {
   position: relative;
   z-index: 1;
@@ -1303,7 +1360,9 @@ button {
   .industry-grid,
   .about-value-grid,
   .about-stage-grid,
-  .about-insight-grid {
+  .about-insight-grid,
+  .docs-grid,
+  .about-hero {
     grid-template-columns: 1fr;
   }
 
@@ -1344,8 +1403,7 @@ button {
   }
 
   .about-hero {
-    min-height: auto;
-    padding: 84px 0 44px;
+    padding: 32px 24px;
   }
 
   .about-cta {

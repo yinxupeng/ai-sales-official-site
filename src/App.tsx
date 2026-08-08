@@ -33,12 +33,12 @@ import customerLogo9 from '../resource/logo9.png';
 import customerLogo10 from '../resource/logo10.png';
 
 const navItems = [
-  { label: '首页', href: '/' },
-  { label: '产品服务', href: '/#产品服务' },
-  { label: '价格', href: '/#价格' },
-  { label: '关于我们', href: '/about' },
-  { label: '博客', href: '/#博客' },
-  { label: '开发文档', href: '/#开发文档' },
+  { label: '首页', href: '#home' },
+  { label: '产品服务', href: '#产品服务' },
+  { label: '价格', href: '#价格' },
+  { label: '关于我们', href: '#关于我们' },
+  { label: '博客', href: '#博客' },
+  { label: '开发文档', href: '#开发文档' },
 ];
 
 const loginUrl = 'http://124.174.58.77/kf-adm/login';
@@ -290,7 +290,6 @@ const aboutProductInsights = [
 ];
 
 export default function App() {
-  const isAboutPage = window.location.pathname === '/about';
   const [isTrialModalOpen, setIsTrialModalOpen] = useState(false);
 
   const openTrialModal = () => setIsTrialModalOpen(true);
@@ -299,7 +298,7 @@ export default function App() {
   return (
     <div className="site-page">
       <Header onTrialClick={openTrialModal} />
-      {isAboutPage ? <AboutPage /> : <HomePage onTrialClick={openTrialModal} />}
+      <HomePage onTrialClick={openTrialModal} />
       <Footer />
       <TrialQrModal isOpen={isTrialModalOpen} onClose={closeTrialModal} />
     </div>
@@ -320,6 +319,8 @@ function HomePage({ onTrialClick }: { onTrialClick: () => void }) {
       <Pricing />
       <News />
       <FAQ />
+      <AboutSection />
+      <DeveloperDocs />
       <FinalCTA onTrialClick={onTrialClick} />
     </main>
   );
@@ -362,18 +363,20 @@ function Header({ onTrialClick }: { onTrialClick: () => void }) {
   );
 }
 
-function AboutPage() {
+function AboutSection() {
   return (
-    <main className="about-page">
-      <section className="about-hero section-wrap">
-        <div className="eyebrow">About Sabuddy</div>
-        <h1>关于我们</h1>
+    <section className="about-page section-wrap" id="关于我们">
+      <div className="about-hero">
+        <div>
+          <div className="eyebrow">About Sabuddy</div>
+          <h2>关于我们</h2>
+        </div>
         <p>
           Sabuddy 致力于帮助企业把 AI 从工具变成增长体系。我们相信，AI 销售不是简单替代客服回复，而是协助企业建立可运营、可交付、可持续迭代的销售增长系统。
         </p>
-      </section>
+      </div>
 
-      <section className="about-section section-wrap">
+      <div className="about-section">
         <SectionTitle title="我们的价值观" desc="让企业在 AI 时代少走弯路，把增长能力真正沉淀到组织里。" />
         <div className="about-value-grid">
           {aboutValues.map((value, index) => (
@@ -383,9 +386,9 @@ function AboutPage() {
             </article>
           ))}
         </div>
-      </section>
+      </div>
 
-      <section className="about-section section-wrap">
+      <div className="about-section">
         <SectionTitle title="产品价值" desc="企业在不同阶段需要不同的增长答案，AI 销售的价值是让销售动作持续稳定地产生结果。" />
         <div className="about-stage-grid">
           {aboutProductValues.map((group) => (
@@ -399,9 +402,9 @@ function AboutPage() {
             </article>
           ))}
         </div>
-      </section>
+      </div>
 
-      <section className="about-section section-wrap">
+      <div className="about-section">
         <SectionTitle title="我们对产品的理解" desc="AI 销售不是一个单点工具，而是一套围绕增长目标重新组织的管理体系、协作模式和执行流程。" />
         <div className="about-insight-grid">
           {aboutProductInsights.map((insight) => (
@@ -415,13 +418,34 @@ function AboutPage() {
             </article>
           ))}
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      <section className="about-cta section-wrap">
-        <h2>我们做的不是客服系统，而是企业的 AI 销售增长系统。</h2>
-        <a className="primary-button" href="/#demo">联系团队</a>
-      </section>
-    </main>
+function DeveloperDocs() {
+  return (
+    <section className="developer-docs section-wrap" id="开发文档">
+      <SectionTitle title="开发文档" desc="面向企业交付、私有化部署和系统集成的技术接入说明。" />
+      <div className="docs-grid">
+        <article>
+          <span>01</span>
+          <h3>渠道接入</h3>
+          <p>支持官网、企微、社媒私信、CRM 等触点接入，统一沉淀咨询、线索和客户状态。</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>知识库与 SOP</h3>
+          <p>导入企业知识库、销售话术、转人工规则和跟进节奏，让 AI 按业务流程执行。</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>私有化部署</h3>
+          <p>支持本地服务器、独立数据库、权限审计、业务系统接口和企业级 SLA 交付。</p>
+        </article>
+      </div>
+      <a className="primary-button" href="#demo">联系技术顾问</a>
+    </section>
   );
 }
 
@@ -720,8 +744,8 @@ function Footer() {
           <strong>Sabuddy.ai</strong>
         </div>
         <div className="footer-links">
-          <a href="/terms">服务条款</a>
-          <a href="/privacy">隐私政策</a>
+          <a href="#开发文档">服务条款</a>
+          <a href="#开发文档">隐私政策</a>
           <a href="#开发文档">开发文档</a>
           <a href="#demo">联系我们</a>
         </div>
