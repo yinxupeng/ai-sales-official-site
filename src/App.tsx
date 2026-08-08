@@ -33,12 +33,12 @@ import customerLogo9 from '../resource/logo9.png';
 import customerLogo10 from '../resource/logo10.png';
 
 const navItems = [
-  { label: '首页', href: '#home' },
-  { label: '产品服务', href: '#产品服务' },
-  { label: '价格', href: '#价格' },
-  { label: '关于我们', href: '#关于我们' },
-  { label: '博客', href: '#博客' },
-  { label: '开发文档', href: '#开发文档' },
+  { label: '首页', href: './' },
+  { label: '产品服务', href: './#产品服务' },
+  { label: '价格', href: './#价格' },
+  { label: '关于我们', href: 'about.html' },
+  { label: '博客', href: './#博客' },
+  { label: '开发文档', href: './#开发文档' },
 ];
 
 const loginUrl = 'http://124.174.58.77/kf-adm/login';
@@ -290,6 +290,7 @@ const aboutProductInsights = [
 ];
 
 export default function App() {
+  const isAboutPage = window.location.pathname.endsWith('/about.html');
   const [isTrialModalOpen, setIsTrialModalOpen] = useState(false);
 
   const openTrialModal = () => setIsTrialModalOpen(true);
@@ -298,7 +299,7 @@ export default function App() {
   return (
     <div className="site-page">
       <Header onTrialClick={openTrialModal} />
-      <HomePage onTrialClick={openTrialModal} />
+      {isAboutPage ? <AboutPage /> : <HomePage onTrialClick={openTrialModal} />}
       <Footer />
       <TrialQrModal isOpen={isTrialModalOpen} onClose={closeTrialModal} />
     </div>
@@ -319,7 +320,6 @@ function HomePage({ onTrialClick }: { onTrialClick: () => void }) {
       <Pricing />
       <News />
       <FAQ />
-      <AboutSection />
       <DeveloperDocs />
       <FinalCTA onTrialClick={onTrialClick} />
     </main>
@@ -344,7 +344,7 @@ function WechatContact() {
 function Header({ onTrialClick }: { onTrialClick: () => void }) {
   return (
     <header className="site-header">
-      <a className="brand" href="#home" aria-label="Sabuddy 首页">
+      <a className="brand" href="./" aria-label="Sabuddy 首页">
         <span className="brand-dot">S</span>
         <strong>Sabuddy.ai</strong>
       </a>
@@ -363,9 +363,9 @@ function Header({ onTrialClick }: { onTrialClick: () => void }) {
   );
 }
 
-function AboutSection() {
+function AboutPage() {
   return (
-    <section className="about-page section-wrap" id="关于我们">
+    <main className="about-page section-wrap">
       <div className="about-hero">
         <div>
           <div className="eyebrow">About Sabuddy</div>
@@ -419,7 +419,12 @@ function AboutSection() {
           ))}
         </div>
       </div>
-    </section>
+
+      <section className="about-cta">
+        <h2>我们做的不是客服系统，而是企业的 AI 销售增长系统。</h2>
+        <a className="primary-button" href="./#demo">联系团队</a>
+      </section>
+    </main>
   );
 }
 
