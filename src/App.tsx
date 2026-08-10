@@ -12,7 +12,7 @@ import {
   Sparkles,
   Target,
 } from 'lucide-react';
-import wechatQr from './assets/contact/wechat-qr.png';
+import wechatQr from '../resource/ewm.png';
 import workflowAgent from '../resource/1.png';
 import workflowBuilder from '../resource/4.png';
 import workflowClaw from '../resource/5.png';
