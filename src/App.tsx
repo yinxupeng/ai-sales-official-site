@@ -12,7 +12,6 @@ import {
   Sparkles,
   Target,
 } from 'lucide-react';
-import heroProduct from './assets/generated/hero-product.png';
 import wechatQr from './assets/contact/wechat-qr.png';
 import workflowAgent from '../resource/1.png';
 import workflowBuilder from '../resource/4.png';
@@ -31,6 +30,7 @@ import customerLogo6 from '../resource/logo6.png';
 import customerLogo8 from '../resource/logo8.png';
 import customerLogo9 from '../resource/logo9.png';
 import customerLogo10 from '../resource/logo10.png';
+import heroBgVideo from '../resource/bg.mp4';
 
 const navItems = [
   { label: '首页', href: './' },
@@ -457,6 +457,17 @@ function DeveloperDocs() {
 function Hero({ onTrialClick }: { onTrialClick: () => void }) {
   return (
     <section className="hero section-wrap" id="home">
+      <video
+        aria-hidden="true"
+        autoPlay
+        className="hero-bg-video"
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        src={heroBgVideo}
+      />
+      <div className="hero-bg-mask" aria-hidden="true" />
       <div className="hero-copy">
         <div className="eyebrow">下一代 AI 销售增长系统 · Sabuddy Enterprise</div>
         <h1>
@@ -473,7 +484,7 @@ function Hero({ onTrialClick }: { onTrialClick: () => void }) {
         </div>
       </div>
       <div className="hero-visual">
-        <img src={heroProduct} alt="Sabuddy AI 销售工作台界面" />
+        <img src={workflowAgent} alt="Sabuddy AI 销售工作台界面" />
       </div>
     </section>
   );
