@@ -13,6 +13,7 @@ import {
   Target,
 } from 'lucide-react';
 import wechatQr from '../resource/ewm.png';
+import heroTop from '../resource/top.png';
 import workflowAgent from '../resource/1.png';
 import workflowBuilder from '../resource/4.png';
 import workflowClaw from '../resource/5.png';
@@ -54,28 +55,36 @@ const partnerLogos = [
   { name: '优秀客户 logo 9', src: customerLogo9 },
   { name: '优秀客户 logo 10', src: customerLogo10 },
 ];
-const customerLogos = ['Shopify', 'Shopee', 'SUPERLIVE', 'Skool', 'Floom', 'Vercel', 'Zyxel', 'ZENLESS', 'HackerOne', 'OpenStore'];
-
 const metrics = [
   {
-    value: '7×24h',
-    title: '全天候在线',
-    desc: '销售、客服、社媒私信持续响应，不错过每一次咨询和转化窗口。',
+    value: 'AGENTIC',
+    title: '自主驱动',
+    desc: '主动识别高意向客户，自主推荐方案、自动追单与复购召回，不靠人工触发。',
   },
   {
-    value: '3分钟',
-    title: '极速上线',
-    desc: '导入知识库、配置角色、接入渠道，即可让 AI 销冠开始工作。',
+    value: 'MULTIMODAL',
+    title: '多模态理解',
+    desc: '读懂图片、语音、视频和文档，准确理解客户的真实需求与购买情绪。',
   },
   {
-    value: '多渠道',
-    title: '全域协同',
-    desc: '覆盖官网、Instagram、小红书、WhatsApp、企微等核心获客触点。',
+    value: 'MEMORY-NATIVE',
+    title: '长程记忆',
+    desc: '原生记忆每个客户的偏好、历史订单和对话上下文，沟通永远接得上。',
   },
   {
-    value: 'AI Agent',
-    title: '主动开单',
-    desc: '从回复问题升级为识别意向、推进话术、触发工具和提醒人工接管。',
+    value: 'MCP-NATIVE',
+    title: '工具编排',
+    desc: '原生支持 MCP 协议，可主动调用 ERP、CRM、电商、支付、物流系统完成交易闭环。',
+  },
+  {
+    value: 'OMNICHANNEL',
+    title: '全渠道在线',
+    desc: '同一个销冠人格，跨官网、企微、社媒私信等渠道无缝出现，客户不会感到被换人。',
+  },
+  {
+    value: '24-7 MULTILINGUAL',
+    title: '全天候多语言',
+    desc: '7x24 不下班，多语言原生支持，跨境、时区和节假日咨询全覆盖。',
   },
 ];
 
@@ -89,7 +98,7 @@ const tools = [
   {
     icon: Network,
     label: 'Sabuddy Builder',
-    title: '低门槛搭建，一句话配置业务流程',
+    title: '低门槛一句话配置业务流程',
     desc: '把线索分配、知识库、转人工、工具调用和数据回写组合成可执行流程。',
   },
   {
@@ -315,7 +324,6 @@ function HomePage({ onTrialClick }: { onTrialClick: () => void }) {
       <Metrics />
       <ToolCards />
       <Workflow />
-      <CustomerStrip />
       <Industries />
       <Pricing />
       <News />
@@ -449,7 +457,6 @@ function DeveloperDocs() {
           <p>支持本地服务器、独立数据库、权限审计、业务系统接口和企业级 SLA 交付。</p>
         </article>
       </div>
-      <a className="primary-button" href="#demo">联系技术顾问</a>
     </section>
   );
 }
@@ -469,12 +476,13 @@ function Hero({ onTrialClick }: { onTrialClick: () => void }) {
       />
       <div className="hero-bg-mask" aria-hidden="true" />
       <div className="hero-copy">
-        <div className="eyebrow">下一代 AI 销售增长系统 · Sabuddy Enterprise</div>
         <h1>
-          <span>Sabuddy.ai</span> 是成交导向的 AI 销冠智能体
+          <span>Sabuddy.ai</span> 不是「客服系统」，
+          <br />
+          是会赚钱的 AI 销冠团队
         </h1>
         <p>
-          7x24 小时在线，自动回复、主动跟进、精准转人工，帮助企业把每一条咨询线索转化为可衡量的增长结果。
+          我们交付的不是软件，而是每个月新增的成交订单
         </p>
         <div className="hero-actions">
           <button className="primary-button" onClick={onTrialClick} type="button">免费试用</button>
@@ -484,7 +492,7 @@ function Hero({ onTrialClick }: { onTrialClick: () => void }) {
         </div>
       </div>
       <div className="hero-visual">
-        <img src={workflowAgent} alt="Sabuddy AI 销售工作台界面" />
+        <img src={heroTop} alt="Sabuddy AI 销售工作台界面" />
       </div>
     </section>
   );
@@ -493,7 +501,7 @@ function Hero({ onTrialClick }: { onTrialClick: () => void }) {
 function LogoBand() {
   return (
     <section className="logo-band section-wrap">
-      <h2>像一线高手这样，被行业先行者验证</h2>
+      <h2>一线行业先行者们已经验证了 Sabuddy 的能力</h2>
       <p>连接客户、渠道、知识库与销售动作，让 AI 成为团队的持续增长引擎</p>
       <div className="logo-marquee" aria-label="优秀客户 logo">
         <div className="logo-track">
@@ -511,7 +519,7 @@ function LogoBand() {
 function Metrics() {
   return (
     <section className="metrics section-wrap">
-      <SectionTitle title="不是客服，而是像真人一样主动成交的 AI 销售" desc="主动理解需求、持续服务客户、引导购买决策，让咨询、跟进、转化和复购形成闭环。" />
+      <SectionTitle title="像真人一样主动成交的 AI 销售" desc="主动理解需求、持续服务客户、引导购买决策，让咨询、跟进、转化和复购形成闭环。" />
       <div className="metric-grid">
         {metrics.map((item) => (
           <article className="metric-card" key={item.title}>
@@ -589,19 +597,6 @@ function Workflow() {
             <li key={item}><Check size={14} /> {item}</li>
           ))}
         </ul>
-      </div>
-    </section>
-  );
-}
-
-function CustomerStrip() {
-  return (
-    <section className="customer-strip section-wrap">
-      <h2>被 4000+ 企业选择，像一线团队这样验证</h2>
-      <div className="customer-row">
-        {customerLogos.map((logo) => (
-          <span key={logo}>{logo}</span>
-        ))}
       </div>
     </section>
   );

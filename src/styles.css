@@ -539,30 +539,29 @@ button {
 
 .metric-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0;
-  border-top: 1px solid var(--line-soft);
-  border-bottom: 1px solid var(--line-soft);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .metric-card {
-  min-height: 210px;
-  padding: 34px 26px 24px;
-  border-right: 1px solid var(--line-soft);
-}
-
-.metric-card:last-child {
-  border-right: 0;
+  min-height: 192px;
+  padding: 26px 28px 28px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 18px;
 }
 
 .metric-card div {
-  color: rgba(255, 255, 255, 0.34);
-  font-size: 14px;
+  color: var(--blue);
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: 0;
 }
 
 .metric-card h3 {
-  margin: 22px 0 11px;
-  font-size: 19px;
+  margin: 16px 0 14px;
+  font-size: 22px;
   font-weight: 650;
 }
 
@@ -575,6 +574,10 @@ button {
   color: var(--muted);
   font-size: 15px;
   line-height: 1.75;
+}
+
+.metric-card p {
+  font-size: 16px;
 }
 
 .tool-grid {
@@ -1404,15 +1407,6 @@ button {
   .industry-card,
   .industry-card.wide {
     grid-column: auto;
-  }
-
-  .metric-card {
-    border-right: 0;
-    border-bottom: 1px solid var(--line-soft);
-  }
-
-  .metric-card:last-child {
-    border-bottom: 0;
   }
 
   .switcher {

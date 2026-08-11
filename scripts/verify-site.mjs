@@ -30,14 +30,15 @@ const sourceText = sourceFiles
 
 const requiredText = [
   'Sabuddy.ai',
-  '是成交导向的 AI 销冠智能体',
+  '不是「客服系统」',
+  '是会赚钱的 AI 销冠团队',
   '免费试用',
   '扫描体验',
   '扫描立即体验',
   '扫码添加我们立即免费试用',
   '关于我们',
   '观看演示',
-  '7x24 小时在线',
+  '我们交付的不是软件，而是每个月新增的成交订单',
   '三位一体的 AI 销冠系统',
   'SabuddyAgent',
   'SabuddyBuilder',
